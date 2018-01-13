@@ -1,0 +1,41 @@
+import React, { Component } from 'react'
+
+class AuthForm extends Component {
+
+  state = {
+    email: '',
+    password: ''
+  }
+
+  render() {
+    const { state: { email, password }} = this
+
+    return (
+      <div className="row">
+        <form className="col s4">
+          <div className="input-field">
+            <label>email</label>
+            <input 
+              value={email}
+              onChange={({ e:{target:{value:email}} }) => 
+                  this.setState({ email  })
+              }
+            />
+          </div>
+          <div className="input-field">
+            <label>password</label>
+            <input 
+              value={password}
+              onChange={({ e:{target:{value:password}} }) => 
+                  this.setState({ password  })
+              }
+            />
+          </div>
+          <button>Submit</button>
+        </form> 
+      </div>
+    )
+  }
+}
+
+export default AuthForm
